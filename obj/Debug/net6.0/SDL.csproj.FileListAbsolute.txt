@@ -1,0 +1,15 @@
+/home/domin/Desktop/SDL/bin/Debug/net6.0/SDL
+/home/domin/Desktop/SDL/bin/Debug/net6.0/SDL.deps.json
+/home/domin/Desktop/SDL/bin/Debug/net6.0/SDL.runtimeconfig.json
+/home/domin/Desktop/SDL/bin/Debug/net6.0/SDL.dll
+/home/domin/Desktop/SDL/bin/Debug/net6.0/ref/SDL.dll
+/home/domin/Desktop/SDL/bin/Debug/net6.0/SDL.pdb
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.csproj.AssemblyReference.cache
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.GeneratedMSBuildEditorConfig.editorconfig
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.AssemblyInfoInputs.cache
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.AssemblyInfo.cs
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.csproj.CoreCompileInputs.cache
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.dll
+/home/domin/Desktop/SDL/obj/Debug/net6.0/ref/SDL.dll
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.pdb
+/home/domin/Desktop/SDL/obj/Debug/net6.0/SDL.genruntimeconfig.cache

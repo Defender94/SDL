@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AgbHTqhNxyr4kdz7ji0vldMn0Zg49c6a873U2jJD+KyU6EnkbNRKAohqjCCb3b0TmkHaup/VJoAqEFc6RmP2KA==",
+  "dgSpecHash": "muqwbKX5MXkXIw+4N5F4B5Xyu2+eHTg/WKo3Ylq8SnHAKXWyNAeZWB/yIAjq7NzTxPzH0hgcJE1ax2xXjKCaxA==",
   "success": true,
-  "projectFilePath": "/home/domin/Desktop/C#/C#.csproj",
+  "projectFilePath": "/home/domin/Desktop/SDL/SDL.csproj",
   "expectedPackageFiles": [
     "/home/domin/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.2/microsoft.aspnetcore.app.ref.6.0.2.nupkg.sha512"
   ],

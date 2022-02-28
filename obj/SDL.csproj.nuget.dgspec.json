@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/domin/Desktop/C#/C#.csproj": {}
+    "/home/domin/Desktop/SDL/SDL.csproj": {}
   },
   "projects": {
-    "/home/domin/Desktop/C#/C#.csproj": {
+    "/home/domin/Desktop/SDL/SDL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/domin/Desktop/C#/C#.csproj",
-        "projectName": "C#",
-        "projectPath": "/home/domin/Desktop/C#/C#.csproj",
+        "projectUniqueName": "/home/domin/Desktop/SDL/SDL.csproj",
+        "projectName": "SDL",
+        "projectPath": "/home/domin/Desktop/SDL/SDL.csproj",
         "packagesPath": "/home/domin/.nuget/packages/",
-        "outputPath": "/home/domin/Desktop/C#/obj/",
+        "outputPath": "/home/domin/Desktop/SDL/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/domin/.nuget/NuGet/NuGet.Config"
