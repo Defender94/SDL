@@ -3,27 +3,15 @@ using static SDL2.SDL;
 
 namespace Runtime
 {
-    public class GameRenderEventArgs : EventArgs
+    public class GameEventArgs : EventArgs
     {
-        public readonly IntPtr renderer;
-        public GameRenderEventArgs(IntPtr renderer)
+        public readonly IntPtr renderer = null;
+        public readonly IntPtr game = null;
+        public GameEventArgs(IntPtr renderer)
         {
             this.renderer = renderer;
         }
-    }
-    public class GameUpdateEventArgs : EventArgs
-    {
-        public readonly IntPtr renderer;
-        public GameUpdateEventArgs(IntPtr renderer)
-        {
-            this.renderer = renderer;
-        }
-    }
-    public class GameHandleEventArgs : EventArgs
-    {
-        public readonly IntPtr renderer;
-        public readonly Game game;
-        public GameHandleEventArgs(IntPtr renderer, Game game)
+        public GameEventArgs(IntPtr renderer, IntPtr game)
         {
             this.renderer = renderer;
             this.game = game;
@@ -31,6 +19,37 @@ namespace Runtime
     }
     public class Game : Program
     {
+        public event EventHandler<GameEventArgs> GameInit = null;
+        public event EventHandler<GameEventArgs> GameHandle = null;
+        public event EventHandler<GameEventArgs> GameUpdate = null;
+        public event EventHandler<GameEventArgs> GameRender = null;
+
+        protected virtual void OnInit(GameEventArgs e) => GameInit?.Invoke(this, e);
+        protected virtual void OnHandle(GameEventArgs e) => GameHandle?.Invoke(this, e);
+        protected virtual void OnUpdate(GameEventArgs e) => GameUpdate?.Invoke(this, e);
+        protected virtual void OnRender(GameEventArgs e) => GameRender?.Invoke(this, e);
+
+        public override void HandleEvents()
+        {
+            OnHandle(new GameEventArgs(renderer, this));
+        }
+        public override void Update()
+        {
+            OnUpdate(new GameEventArgs(renderer));
+        }     
+        public override void Render()
+        {
+            SDL_RenderClear(renderer);
+            OnRender(new GameEventArgs(renderer));
+            SDL_RenderPresent(renderer);
+        }
+        public override void Quit()
+        {
+            isAlive = false;
+            SDL_DestroyWindow(window);
+            SDL_DestroyRenderer(renderer);
+            SDL_Quit();
+        }
         public override void Start(string title, int xpos, int ypos, int width, int heigth, bool fullscreen)
         {
             //int flags = 0;
@@ -41,39 +60,13 @@ namespace Runtime
                 renderer = SDL_CreateRenderer(window, -1, 0);
                 isAlive = true;
             }
+            OnInit(new GameEventArgs(renderer));
             while(isAlive)
             {
                 HandleEvents();
                 Update();
                 Render();
             }
-        }
-        public event EventHandler<GameHandleEventArgs> GameHandle = null;
-        protected virtual void OnHandle(GameHandleEventArgs e) => GameHandle?.Invoke(this, e);
-        public override void HandleEvents()
-        {
-            OnHandle(new GameHandleEventArgs(renderer, this));
-        }
-        public event EventHandler<GameUpdateEventArgs> GameUpdate = null;
-        protected virtual void OnUpdate(GameUpdateEventArgs e) => GameUpdate?.Invoke(this, e);
-        public override void Update()
-        {
-            OnUpdate(new GameUpdateEventArgs(renderer));
-        }
-        public event EventHandler<GameRenderEventArgs> GameRender = null;
-        protected virtual void OnRender(GameRenderEventArgs e) => GameRender?.Invoke(this, e);
-        public override void Render()
-        {
-            SDL_RenderClear(renderer);
-            OnRender(new GameRenderEventArgs(renderer));
-            SDL_RenderPresent(renderer);
-        }
-        public override void Quit()
-        {
-            isAlive = false;
-            SDL_DestroyWindow(window);
-            SDL_DestroyRenderer(renderer);
-            SDL_Quit();
         }
     }
 }
