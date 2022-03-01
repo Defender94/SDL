@@ -1,17 +1,18 @@
 using SDL2;
+using System;
 using static SDL2.SDL;
 
 namespace Runtime
 {
     public class GameEventArgs : EventArgs
     {
-        public readonly IntPtr renderer = null;
-        public readonly IntPtr game = null;
+        public readonly IntPtr renderer;
+        public readonly Game game = null;
         public GameEventArgs(IntPtr renderer)
         {
             this.renderer = renderer;
         }
-        public GameEventArgs(IntPtr renderer, IntPtr game)
+        public GameEventArgs(IntPtr renderer, Game game)
         {
             this.renderer = renderer;
             this.game = game;
@@ -57,15 +58,22 @@ namespace Runtime
             if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
             {
                 window = SDL_CreateWindow(title, xpos, ypos, width, heigth, 0); //todo implement fullscreen
-                renderer = SDL_CreateRenderer(window, -1, 0);
+                renderer = SDL_CreateRenderer(window, -1, SDL_RendererFlags.SDL_RENDERER_PRESENTVSYNC);
                 isAlive = true;
             }
             OnInit(new GameEventArgs(renderer));
             while(isAlive)
             {
+                UInt64 start = SDL_GetPerformanceCounter();
+
                 HandleEvents();
                 Update();
                 Render();
+
+                UInt64 end = SDL_GetPerformanceCounter();
+	            float elapsed = (end - start) / (float)SDL_GetPerformanceFrequency();
+	            Console.WriteLine("Current FPS: {0}", (1.0f / elapsed));
+
             }
         }
     }

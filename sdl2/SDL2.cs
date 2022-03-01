@@ -4122,6 +4122,13 @@ namespace SDL2
 			public int y;
 			public int w;
 			public int h;
+			public SDL_Rect(int x, int y, int w, int h)
+			{
+				this.x = x;
+				this.y = y;
+				this.w = w;
+				this.h = h;
+			}
 		}
 
 		/* Only available in 2.0.10 or higher. */
@@ -4236,14 +4243,9 @@ namespace SDL2
 		}
 
 		/* surface refers to an SDL_Surface* */
-		public static bool SDL_MUSTLOCK(IntPtr surface)
+		public static bool SDL_MUSTLOCK(ref SDL_Surface surface)
 		{
-			SDL_Surface sur;
-			sur = (SDL_Surface) Marshal.PtrToStructure(
-				surface,
-				typeof(SDL_Surface)
-			);
-			return (sur.flags & SDL_RLEACCEL) != 0;
+			return (surface.flags & SDL_RLEACCEL) != 0;
 		}
 
 		/* src and dst refer to an SDL_Surface* */
