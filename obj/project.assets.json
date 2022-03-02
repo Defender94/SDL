@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/dmuc/.nuget/packages/": {}
+    "/home/domin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dmuc/Desktop/SDL/SDL.csproj",
+      "projectUniqueName": "/home/domin/Desktop/SDL/SDL.csproj",
       "projectName": "SDL",
-      "projectPath": "/home/dmuc/Desktop/SDL/SDL.csproj",
-      "packagesPath": "/home/dmuc/.nuget/packages/",
-      "outputPath": "/home/dmuc/Desktop/SDL/obj/",
+      "projectPath": "/home/domin/Desktop/SDL/SDL.csproj",
+      "packagesPath": "/home/domin/.nuget/packages/",
+      "outputPath": "/home/domin/Desktop/SDL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dmuc/.nuget/NuGet/NuGet.Config"
+        "/home/domin/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

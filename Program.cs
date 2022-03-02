@@ -14,6 +14,6 @@ namespace Runtime
         public virtual bool Alive() => isAlive;
         protected bool isAlive = false;
         protected IntPtr window;
-        protected IntPtr renderer;
+        public IntPtr renderer;
     }
 }
