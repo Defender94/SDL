@@ -4,9 +4,7 @@ namespace Runtime
 {
     class Runtime
     {
-        public static IntPtr playerTex;
-        public static SDL_Rect srcRect = new SDL_Rect(0, 0, 64, 64);
-        public static SDL_Rect destRect = new SDL_Rect(0, 0, 64, 64);
+        
         
         static void Main(string[] args)
         {
@@ -15,7 +13,7 @@ namespace Runtime
             game.GameRender += Background;
             game.GameRender += RenderPlayer;
             //game.GameRender += RenderFps;
-            game.GameHandle += PlayerMovement;
+            //game.GameHandle += PlayerMovement;
             game.GameHandle += QuitEvent;
             game.Start("Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, true);
         }
@@ -32,6 +30,12 @@ namespace Runtime
                 case SDL_EventType.SDL_QUIT:
                     e.game.Quit();
                     break;
+                case SDL_EventType.SDL_KEYDOWN:
+                    if(ev.key.keysym.sym == SDL_Keycode.SDLK_w)
+                    {
+                        //player.velocity+=1.0f;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -39,20 +43,20 @@ namespace Runtime
         static void LoadPlayer(object? sender, GameEventArgs e)
         {
             var temp = SDL_image.IMG_Load("assets/sprite.png");
-            playerTex = SDL_CreateTextureFromSurface(e.renderer, temp);
+            //playerTex = SDL_CreateTextureFromSurface(e.renderer, temp);
             SDL_FreeSurface(temp);
         }
         static void RenderPlayer(object? sender, GameEventArgs e)
         { 
-            SDL_RenderCopy(e.renderer, playerTex, ref srcRect, ref destRect);
+            //SDL_RenderCopy(e.renderer, playerTex, ref srcRect, ref destRect);
         }
         static void PlayerMovement(object? sender, GameEventArgs e)
         {
-            destRect.x++;
+            //destRect.x++;
         }
         /*static void RenderFps(object? sender, GameEventArgs e)
         {
-            SDL_
+            SDL_wwwwwwwwwwwwwwwwwwwww
         }*/
     }
 }
